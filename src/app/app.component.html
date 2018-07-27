@@ -1,5 +1,5 @@
 <app-upper-header *ngIf="!isDashboard()"></app-upper-header>
-<div class="container">
+<div class="{{!isDashboard()?'':'dashboard-'}}container">
  <app-header *ngIf="!isDashboard()"></app-header>
   <div id="gototop" *ngIf="!isDashboard()"></div>
   	<router-outlet></router-outlet> 

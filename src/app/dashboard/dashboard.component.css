@@ -1,0 +1,22 @@
+input{
+	height : 40px !important;
+}
+
+.search-div{
+	display: flex;
+    align-items: center;
+}
+
+.btn-margin{
+	margin: -10px 0 0 10px;
+}
+
+.add-new{
+	float: right;
+    margin-top: -52px;
+}
+
+.search-container{
+	border-bottom: 2px solid #a29d9d;
+    margin-bottom: 30px;
+}

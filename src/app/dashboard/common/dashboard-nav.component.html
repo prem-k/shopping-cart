@@ -1,0 +1,22 @@
+<ul class="list-unstyled navbar__list">
+    <li class="has-sub" routerLinkActive="active">
+        <a class="js-arrow" [routerLink]="['/dashboard/home']">
+            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+    </li>
+    <li routerLinkActive="active">
+        <a [routerLink]="['users']">
+            <i class="fas fa-table"></i>Users </a>
+    </li>
+    <li routerLinkActive="active">
+        <a [routerLink]="['products']">
+            <i class="fas fa-chart-bar"></i>Products </a>
+    </li>
+    <li routerLinkActive="active">
+        <a [routerLink]="['orders']">
+            <i class="fas fa-desktop"></i>Orders </a>
+    </li>
+    <li routerLinkActive="active">
+        <a [routerLink]="['pages']">
+            <i class="fas fa-copy"></i>Pages </a>
+    </li>                        
+</ul>

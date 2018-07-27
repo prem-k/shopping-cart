@@ -14,10 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MyCartComponent } from './my-cart/my-cart.component';
 import { MyAccountComponent } from './my-account/my-account.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UsersComponent } from './dashboard/users/users.component';
-import { AddUserComponent } from './dashboard/users/add-user.component';
-import { DashboardLoginComponent } from './dashboard/dashboard-login/dashboard-login.component';
+
 
 const routes : Routes = [
 	{
@@ -71,17 +68,7 @@ const routes : Routes = [
 	{
 		path : 'product-details',
 		component : ProductDetailsComponent
-	},
-	{
-		path : 'dashboard',
-		component : DashboardComponent,
-		children : 	[
-		
-			{ path : 'login', component : DashboardLoginComponent },
-			{ path : 'users', component : UsersComponent},
-			{ path : 'users/add-user', component : AddUserComponent},
-		]
-	},
+	},	
 	{ 	
 		path: '', 
 		redirectTo: 'home', 

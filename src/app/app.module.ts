@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { HttpModule } from '@angular/http';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -10,6 +11,7 @@ import { LowerFooterComponent } from './lower-footer/lower-footer.component';
 import { LeftNavComponent } from './left-nav/left-nav.component';
 
 import { AppRoutesModule,routingComponents } from './routes.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 import { ConfigService } from './config.service';
 import { ApiService } from './api.service';
@@ -26,8 +28,11 @@ import { ApiService } from './api.service';
     routingComponents
   ],
   imports: [
+    HttpModule,
+    FormsModule,
     BrowserModule,
-    AppRoutesModule
+    AppRoutesModule,
+    DashboardModule
   ],
   providers: [ConfigService,ApiService],
   bootstrap: [AppComponent]

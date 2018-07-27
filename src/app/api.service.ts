@@ -1,21 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { ConfigService } from './config.service';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+
 @Injectable(/*{
   providedIn: 'root'
 }*/)
 export class ApiService {
 
 	public baseUrl : any = '';
-
-  	constructor(private configService : ConfigService) {
+    public pageLimit : any = '';
+  	constructor(private http : Http, private configService : ConfigService) {
   		this.baseUrl = configService.apiUrl;
+  		this.pageLimit = 10;
+  	}
+
+  	getToken(){
+  		return 'fghgfhgfhf354f3h4fg3h54h5g4fg5h4gf5h4';
   	}
 
   	submitRequest(aRequest){        
-		
 		if(aRequest.method === 'POST'){
-			//let headers  = new Headers({ 'Content-Type': 'application/json'}); // ... Set content type to JSON
-			let headers  = new Headers({ 'token': this.getToken()});
+			let headers  = new Headers({ 'Content-Type': 'application/json','token': this.getToken()}); // ... Set content type to JSON
+			//headers  = new Headers({ 'token': this.getToken()});
 			let options  = new RequestOptions({ 
 									headers: headers,
 									search : Object.assign({},aRequest.search) 
@@ -30,7 +36,7 @@ export class ApiService {
 
     login(){
 		return {
-			url: this.baseUrl+'/user-login',
+			url: this.baseUrl+'user-login',
 			method : 'POST',
 			dataType: 'json',
 			search : {
@@ -45,4 +51,29 @@ export class ApiService {
 			}
 		};
 	};
+
+	addUser(){
+		return {
+			url: this.baseUrl+'add-user',
+			method : 'POST',
+			dataType: 'json',			
+			data: {
+
+			}
+		};
+	};
+
+	usersList(){
+		return {
+			url: this.baseUrl+'users-list',
+			method : 'GET',
+			dataType: 'json',			
+			search : {
+				search : '',
+				offset : 0,
+				limit : this.pageLimit	
+			}
+		};
+	};
+
 }
