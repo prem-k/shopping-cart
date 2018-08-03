@@ -4,9 +4,9 @@
         <div class="search-container">
             <div class="search-body">            
                 <form action="" method="post" novalidate="novalidate">
-                    <div class="form-group col col-sm-4 search-div">                   
-                        <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" placeholder="Search">
-                        <button type="submit" class="btn-margin btn btn-primary btn-sm" >Search</button>
+                    <div class="form-group col col-sm-4 search-div">                  
+                        <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" placeholder="Search" [(ngModel)]="searchKey">
+                        <button type="submit" (click)="users(searchKey)" class="btn-margin btn btn-primary btn-sm" >Search</button>
                     </div>
                     <div class="add-new">
                         <a [routerLink]="['add-user']" >

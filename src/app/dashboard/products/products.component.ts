@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+	productsData<any>;
 
-  ngOnInit() {
-  }
+	constructor(private apiService : ApiService) { }
+
+	ngOnInit() {
+		this.products('');
+	}
+
+	products(search){
+		let request = this.apiService.products();
+		if(search && search.length > 0){
+			request.search.key = search;
+		}
+		this.apiService.submitRequest(request).subscribe( (res:any) => {
+			this.productsData =  res.json();
+		});
+	}
 
 }

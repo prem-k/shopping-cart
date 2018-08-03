@@ -2,22 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class UsersComponent implements OnInit {
+export class CategoryComponent implements OnInit {
 
-	public usersData : any = {};	
-
+	public usersData:any = {};
 	constructor(private apiService : ApiService) { }
 
 	ngOnInit() {
-		this.users('');
+		this.categoryList('');
 	}
 
-	users(search){
-		let request = this.apiService.usersList();
+	categoryList(search){
+		let request = this.apiService.categoryList();
 		if(search && search.length > 0){
 			request.search.key = search;
 		}

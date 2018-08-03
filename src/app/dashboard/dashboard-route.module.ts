@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PagesComponent } from './pages/pages.component';
+import { CategoryComponent } from './category/category.component';
+import { AddCategoryComponent } from './category/add-category.component';
+import { AddProductComponent } from './products/add-product.component';
 
 const routes: Routes = [
 	{
@@ -50,7 +53,20 @@ const routes: Routes = [
 					title : 'User'
 				} 
 			},
-
+			{ 
+				path : 'category', 
+				component : CategoryComponent,
+				data : {
+					title : 'Category'
+				} 
+			},
+			{ 
+				path : 'category/add-category', 
+				component : AddCategoryComponent,
+				data : {
+					title : 'Category'
+				} 
+			},
 			{ 
 				path : 'products', 
 				component : ProductsComponent,
@@ -60,7 +76,7 @@ const routes: Routes = [
 			},
 			{ 
 				path : 'products/add-product', 
-				component : AddUserComponent,
+				component : AddProductComponent,
 				data : {
 					title : 'Products'
 				} 

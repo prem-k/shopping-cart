@@ -1,0 +1,45 @@
+<div class="right-form-conatiner">
+	<div class="row">
+	    <div class="col-lg-12">
+	        <div class="search-container">
+	            <div class="search-body">            
+	                <form action="" method="post" novalidate="novalidate">
+	                    <div class="form-group col col-sm-4 search-div">
+	                        <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" placeholder="Search" [(ngModel)]="searchKey">
+	                        <button type="submit" (click)="categoryList(searchKey)" class="btn-margin btn btn-primary btn-sm" >Search</button>
+	                    </div>
+	                    <div class="add-new">
+	                        <a [routerLink]="['add-category']" >
+	                            <input type="button" class="btn-margin au-btn au-btn-icon au-btn--blue" value="Add New" >
+	                        </a>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="col-lg-12">
+	        <div class="table-responsive table--no-card m-b-30">
+	            <table class="table table-borderless table-striped table-earning">
+	                <thead>
+	                    <tr>
+	                        <th>Name</th>
+	                        <th>Status</th>
+	                        <th>Added On</th>     
+	                        <th>Action</th>                       
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                    <tr *ngFor="let user of usersData">
+	                        <td>{{user.name}}</td>
+	                        <td>{{user.status ? 'Active' : 'Inactive'}}</td>
+	                        <td>{{user.createdAt}}</td> 
+	                        <td>View Sub Category</td>
+	                    </tr>                    
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	</div>
+</div>

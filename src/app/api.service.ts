@@ -29,7 +29,10 @@ export class ApiService {
 			let body = JSON.stringify(aRequest.data);
 			return this.http.post(aRequest.url, body, options);
 		}else{
-			return this.http.get(aRequest.url,aRequest.data);
+			let options  = new RequestOptions({ 
+									search : Object.assign({},aRequest.search) 
+							}); // Create a request option
+			return this.http.get(aRequest.url,options);
 		}
         
     }
@@ -69,11 +72,62 @@ export class ApiService {
 			method : 'GET',
 			dataType: 'json',			
 			search : {
-				search : '',
+				key : '',
 				offset : 0,
 				limit : this.pageLimit	
 			}
 		};
 	};
+
+	categoryList(){
+		return {
+			url: this.baseUrl+'category-list',
+			method : 'GET',
+			dataType: 'json',			
+			search : {
+				key : '',
+				parent_category : 0,
+				offset : 0,
+				limit : this.pageLimit	
+			}
+		};
+	};
+
+	addCategory(){
+		return {
+			url: this.baseUrl+'category/add-category',
+			method : 'POST',
+			dataType: 'json',			
+			data: {
+
+			}
+		};
+	};
+
+	products(){
+		return {
+			url: this.baseUrl+'products',
+			method : 'GET',
+			dataType: 'json',			
+			search : {
+				key : '',
+				offset : 0,
+				limit : this.pageLimit	
+			}
+		};
+	};
+
+	addProduct(){
+		return {
+			url: this.baseUrl+'products/add',
+			method : 'POST',
+			dataType: 'json',			
+			search : {
+				key : '',
+				offset : 0,
+				limit : this.pageLimit	
+			}
+		};
+	}
 
 }
